@@ -1,0 +1,7 @@
+<svg id="Edit_button" data-name="Edit button" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <rect id="Rectangle_14" data-name="Rectangle 14" width="36" height="36" rx="18" fill="#fff"/>
+  <g id="delete" transform="translate(11 9.5)">
+    <path id="Path_113" data-name="Path 113" d="M13.25,2H10.5V1.5A1.5,1.5,0,0,0,9,0H7A1.5,1.5,0,0,0,5.5,1.5V2H2.75A1.25,1.25,0,0,0,1.5,3.25v1a.5.5,0,0,0,.5.5H14a.5.5,0,0,0,.5-.5v-1A1.25,1.25,0,0,0,13.25,2ZM6.5,1.5A.5.5,0,0,1,7,1H9a.5.5,0,0,1,.5.5V2h-3Z" transform="translate(-1.5)" fill="#ffe5e8"/>
+    <path id="Path_114" data-name="Path 114" d="M2.449,5.75a.156.156,0,0,0-.156.164l.412,8.658A1.5,1.5,0,0,0,4.2,16H11.8a1.5,1.5,0,0,0,1.5-1.429l.413-8.658a.156.156,0,0,0-.156-.164ZM10,7a.5.5,0,0,1,1,0v6.5a.5.5,0,0,1-1,0ZM7.5,7a.5.5,0,0,1,1,0v6.5a.5.5,0,0,1-1,0ZM5,7A.5.5,0,0,1,6,7v6.5a.5.5,0,0,1-1,0Z" transform="translate(-1.5)" fill="#f64e60"/>
+  </g>
+</svg>

@@ -1,0 +1,4 @@
+export default {
+  SET_REGIONS_USA: 'SET_REGIONS_USA',
+  SET_REGIONS_UZB: 'SET_REGIONS_UZB',
+};
