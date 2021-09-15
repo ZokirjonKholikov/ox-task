@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import Table from '../../../components/TableV2';
-import Header from '../../../components/Headers/OrderHeader';
 import TableError from '../../../components/TableV2/Error';
 import {
   ContentBodyContainer,
@@ -30,8 +29,6 @@ const Orders = () => {
   return (
     <ContentContainer>
       <ContentBodyContainer>
-        <Header
-        />
         {!loading && error ? (
           <TableError message={error} />
         ) : (
