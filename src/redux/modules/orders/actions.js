@@ -8,6 +8,11 @@ export const setData = (payload) => ({
   type: types.TABLE_ORDERS_SET_DATA,
   payload,
 });
+export const setFilteredData = (payload) => ({
+  type: types.TABLE_ORDERS_SET_FILTERED_DATA,
+  payload,
+});
+
 export const setTotal = (payload) => ({
   type: types.TABLE_ORDERS_SET_TOTAL,
   payload,

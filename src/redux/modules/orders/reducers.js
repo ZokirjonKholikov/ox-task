@@ -2,6 +2,7 @@ import types from '../../../constants/action-types';
 
 const defaultState = {
   data: [],
+  filteredData: [],
   loading: false,
   total: 0,
   error: '',
@@ -15,6 +16,10 @@ const map = {
   [types.TABLE_ORDERS_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload,
+  }),
+  [types.TABLE_ORDERS_SET_FILTERED_DATA]: (state, { payload }) => ({
+    ...state,
+    filteredData: payload,
   }),
   [types.TABLE_ORDERS_SET_TOTAL]: (state, { payload }) => ({
     ...state,

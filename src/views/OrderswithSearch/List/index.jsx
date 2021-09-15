@@ -5,7 +5,7 @@ import Header from '../../../components/Headers/OrderWithSearchHeader';
 import TableError from '../../../components/TableV2/Error';
 import {
   ContentBodyContainer,
-  ContentContainer
+  ContentContainer,
 } from '../../../components/Styles';
 import { headerToolTips, toolTips } from './helper';
 import { headerMaker } from '../../../components/TableV2/helpers';
@@ -14,34 +14,30 @@ import { ordersHeader } from '../../../redux/modules/table/common';
 import { useQuery } from '../../useQuery';
 
 const Orders = () => {
-  const {
-    handleOnTableChange,
-    search,
-    setSearch,
-    setSort,
-    query
-  } = useQuery({ headers: ordersHeader, fetchData });
+  const { handleOnTableChange, search, setSearch, setSort, query } = useQuery({
+    headers: ordersHeader,
+    fetchData,
+  });
 
-  const {
-    loading, data, total, error
-  } = useSelector((state) => state.ordersReducer);
-
-  const headerData = useSelector(({ tableReducer }) => tableReducer.ordersHeader);
+  const { loading, filteredData, total, error } = useSelector(
+    (state) => state.ordersReducer
+  );
+  
+  const headerData = useSelector(
+    ({ tableReducer }) => tableReducer.ordersHeader
+  );
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
 
   return (
     <ContentContainer>
       <ContentBodyContainer>
-        <Header
-          setSearch={setSearch}
-          search={search}
-        />
+        <Header setSearch={setSearch} search={search} />
         {!loading && error ? (
           <TableError message={error} />
         ) : (
           <Table
             headers={headers}
-            data={data}
+            data={filteredData}
             toolTips={toolTips}
             headerToolTips={headerToolTips}
             onChange={handleOnTableChange}

@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export function useQuery({ headers, fetchData }) {
   const dispatch = useDispatch();
@@ -7,32 +7,20 @@ export function useQuery({ headers, fetchData }) {
   const [search, setSearch] = useState('');
   const [pageSize, setPageSize] = useState(0);
   const [pageIndex, setPageIndex] = useState(0);
-
-  // const sortQuery = useMemo(() => {
-  //   const found = sort && headers.find(({ id }) => id === sort.id);
-  //   return found
-  //     ? `&sort[${found.accessor}]=${sort.desc ? 'desc' : 'asc'}`
-  //     : '&sort[id]=desc';
-  // }, [sort, headers]);
-
-
+  const { data } = useSelector((state) => state.ordersReducer);
   const pageSizeQuery = useMemo(
     () => (pageSize ? `&size=${pageSize}` : ''),
     [pageSize]
   );
 
-  const pageQuery = useMemo(() => `page=${search ? 1 : pageIndex + 1}`, [
-    pageIndex,
-    search,
-  ]);
+  const pageQuery = useMemo(
+    () => `page=${search ? 1 : pageIndex + 1}`,
+    [pageIndex, search]
+  );
 
   const query = useMemo(
-    () =>
-      `${pageQuery}${pageSizeQuery}`,
-    [
-      pageQuery,
-      pageSizeQuery,
-    ]
+    () => `${pageQuery}${pageSizeQuery}`,
+    [pageQuery, pageSizeQuery]
   );
 
   const handleOnTableChange = ({ pageIndex, pageSize }) => {
@@ -43,6 +31,8 @@ export function useQuery({ headers, fetchData }) {
   useEffect(() => {
     dispatch(
       fetchData({
+        data,
+        search,
         isSearch: true,
         query: `${query}${search ? '&search=' + search : ''}`,
       })
