@@ -1,11 +1,9 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
-// import service from '../../../services/auth';
 import { setToken, setError } from './actions';
 
 function* login({ payload, success }) {
   try {
-    // const { data } = yield service.getToken(payload);
     success(payload.token, payload.userId);
   } catch (error) {
     yield put(setError(error.message));

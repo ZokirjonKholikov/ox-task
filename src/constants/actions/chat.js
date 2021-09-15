@@ -1,4 +1,0 @@
-export default {
-  SEND_MESSAGE: 'SEND_MESSAGE',
-  FETCH_MESSAGE: 'FETCH_MESSAGE',
-};
